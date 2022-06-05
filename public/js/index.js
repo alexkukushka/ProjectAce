@@ -29,17 +29,15 @@ var main = function(UserMoney) {
                                 console.log(error);
                                 alert("Произошла ошибка!\n" + jqXHR.status + " " + jqXHR.textStatus);
                             });
-                        } else {
-                            alert("Некорректный вход!");
                         }
                     }
                 } else {
                     alert("Некорректный вход!");
                 }
             } else {
-                var username = $(".input_login").val(),
+                var login = $(".input_login").val(),
                     password = $(".input_password").val();
-                if (username.trim() !== "" && password.trim() !== "") {
+                if (login.trim() !== "" && password.trim() !== "") {
                     var newUser = {
                         "login": login,
                         "password": password
