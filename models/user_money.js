@@ -4,6 +4,7 @@ var user_moneySchema = mongoose.Schema({
     password: String
 });
 var user_money = mongoose.model("user_money", user_moneySchema);
+module.exports = user_money;
 
 
 
