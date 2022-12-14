@@ -2,7 +2,7 @@ var express = require("express"),
     http = require("http"),
     mongoose = require("mongoose"),
     app = express();
-mongoose.connect('mongodb://localhost/MoneyService');
+mongoose.connect('mongodb://127.0.0.1:27017/MoneyService');
 app.use('/', express.static(__dirname + "/public"));
 app.use('/user/:login', express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
