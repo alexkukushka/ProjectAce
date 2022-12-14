@@ -3,25 +3,31 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Главная страница</title>
+    <title>Страница менеджера</title>
     <link href="./index.css" rel="stylesheet">
     <link rel="icon" href="../logo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="wrapper"> 
-        <div class="header">
+    <div class="wrapper">
+        <div class="header2">
             <img class="logo" src="./logo.png">
             <h1>ProjectA</h1>
-            <p></p>
-            <img class="user" src="./user.png">
+            <h3><a class="btnAdd" href="#">Добавить категорию</a></h3>
+            <h3><a class="btnEdit" href="#">Редактировать категорию</a></h3>
+            <h3><a class="btnDel" href="#">Удалить категорию</a></h3>
+            <h1><a href="/index.html">Выход</a></h1>
+
         </div>
     </div>
-    <div class="main">
-        <h2>Добро пожаловать!</h2>
-        <h2>Зарегестрируйтесь или войдите для доступа к Вашему личному помощнику!</h2>
+    <div>
+    <h2>Список всех категорий:</h2>
+    <div class = "cont">
+
     </div>
+    </div>
+    
 
     <div class="footer">
         <div class="leftFooter">
@@ -38,7 +44,11 @@
         </div>
     </div>
     <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/index.js"></script>     
+    <script src="./js/manager.js"></script>
+    <script src="./js/categAdd.js"></script>     
+    <script src="./js/categEdit.js"></script> 
+    <script src="./js/categDel.js"></script>  
+    
 </body>
 
 

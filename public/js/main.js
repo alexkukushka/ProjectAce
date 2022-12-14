@@ -2,6 +2,7 @@ var main = function (Category, InOut) {
 "use strict";
 var sum = 0;
 InOut.forEach(function(item){
+    
     sum+=item.price;})
 $(".outerg").text("Потрачено: " + sum);
 var tabNumber = 1;
@@ -143,7 +144,7 @@ var DelItem = function(item, callback) {
     return $buttonDel;
 }
 $.getJSON("/category", function(Category) {
-    $.getJSON("/inout/1r34k2",function(InOut){
+    $.getJSON("/inout/"+ location.href.split("/")[4],function(InOut){
         main(Category, InOut);
 })
 })

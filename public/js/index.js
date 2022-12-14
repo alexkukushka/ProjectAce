@@ -15,16 +15,21 @@ var main = function(UserMoney) {
         $buttonZap.on("click", function() {
             if (flag === false) {
                 var username = $(".input_login").val(),
-                    password = $(".input_password").val();
+                    password = $(".input_password").val(),
+                    mode;
                 console.log(username);
                 if (username.trim() !== "" && password.trim() !== "") {
                     for (var i = 0; i < UserMoney.length; i++) {
                         if (UserMoney[i].login === username && UserMoney[i].password === password) {
+                        mode = UserMoney[i].mode;
+                        console.log(mode);
                             $.ajax({
                                 'url': '/user/' + username,
                                 'type': 'GET'
                             }).done(function(responde) {
-                                window.location.replace('user/' + username + '/' + 'main.html');
+                                if(mode === "person") window.location.replace('user/' + username + '/' + 'main.html');     
+                                else if(mode === "manager") window.location.replace('user/' + username + '/' + 'manager.html');
+                                else if(mode === "admin") window.location.replace('user/' + username + '/' + 'admin.html');      
                             }).fail(function(jqXHR, textStatus, error) {
                                 console.log(error);
                                 alert("Произошла ошибка!\n" + jqXHR.status + " " + jqXHR.textStatus);
@@ -40,7 +45,8 @@ var main = function(UserMoney) {
                 if (login.trim() !== "" && password.trim() !== "") {
                     var newUser = {
                         "login": login,
-                        "password": password
+                        "password": password,
+                        "mode":"person"
                     };
                     $.post("/user_money", newUser, function(result) {}).done(function(responde) {
                         popUpHideWithSuccess();
@@ -103,5 +109,10 @@ var popUpHideWithSuccess = function() {
 
 
 $.getJSON("/user_money", function(UserMoney) {
+    var uri = window.location.toString();
+	if (uri.indexOf("?") > 0) {
+	    var clean_uri = uri.substring(0, uri.indexOf("?"));
+	    window.history.replaceState({}, document.title, clean_uri);
+	}
     main(UserMoney);
 })
